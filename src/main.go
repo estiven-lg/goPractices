@@ -1,17 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
+
+func isPalindrome(word string) bool {
+	lowerWord := string(strings.ToLower(word))
+	var reverseWord string
+
+	for i := int(len(word) - 1); i >= 0; i-- {
+		reverseWord += string(lowerWord[i])
+	}
+
+	return reverseWord == lowerWord
+}
 
 func main() {
-	const pi float64 = 3.14
-	fmt.Println(pi)
-
-	base := 12
-	fmt.Println(base)
-	var altura int
-	altura = 10
-	fmt.Println(altura)
-	var area int = base * altura
-	fmt.Println(area)
-
+	word := "Aibofobia"
+	if isPalindrome(word) {
+		fmt.Printf("'%s' es palanindroma \n", word)
+	} else {
+		fmt.Printf("'%s' no es palanindroma \n", word)
+	}
 }
